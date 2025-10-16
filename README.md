@@ -16,8 +16,6 @@ An initial, non-exhaustive literature review identifies success metrics for rese
 A crude virtual project model, based on representative assumptions from experience working with the COHERENT experiment at Oak Ridge National Laboratory, is used to simulate project outcomes under each framework. 
 Results provide an initial view of how framework choice influences project success and readiness in research infrastructure contexts.
 
-## Repository Structure
-
 ## Review and Feedback
 
 If appropriate, advisors and committee members are welcomed to use the **`draft-review`** branch when providing comments or suggestions. All forms of feedback are extremely useful.
