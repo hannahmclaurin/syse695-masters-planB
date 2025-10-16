@@ -5,7 +5,7 @@ This is a \textit{non-exhaustive} search and review of publications and research
 It focuses on determining how different frameworks influence project structure, maturity, and performance, particularly in medium-scale research space.\\
 The review aims to just begin to answer the following guiding questions:
 %%%% Supporting Research Questions %%%%%%%%%%%%%
-%\begin{enumerate}
+%\begin{enumerate}[noitemsep, topsep=0pt]
     %\item What qualitative and/or quantitative evidence exists to demonstrate impact of systems engineering as a practice on medium-scale research infrastructure or equivalent projects?
     %\item What are metrics of project success for medium-scale research infrastructure projects?
     %\item What elements of a project are well-understood to impact success metrics?
@@ -23,10 +23,13 @@ The review aims to just begin to answer the following guiding questions:
 \label{sect:characteristics}
 \subsection{NASA Systems Engineering Framework}
 \label{sub:nasa}
-The NASA Systems Engineering (SE) framework, formalized in NASA Procedural Requirements (NPR) 7123.1D \cite{npr7123.1D} and detailed in the NASA Systems Engineering Handbook \cite{nasa2016handbook}, defines a structured systems engineering approach that will "enhance NASA's core engineering capabilities while improving safety, mission success, and affordability."\cite{npr7123.1D}. It is a multidisciplinary, lifecycle approach that integrates hardware, software, and human elements at all levels of hierarchy of a system. The framework divides the project lifecycle into Formulation and Implementation phases, each containing well-defined reviews with specified entrance and exit criteria. Each gate verifies that a project is in compliance with NPR 7123.1D and in turn validates its intent to ensure the end product meets the customer's need.\cite{npr7123.1D}
+The NASA Systems Engineering (SE) framework, formalized in NASA Procedural Requirements (NPR) 7123.1D \cite{npr7123.1D} and detailed in the NASA Systems Engineering Handbook \cite{nasa2016handbook}, defines a structured systems engineering approach that will "enhance NASA's core engineering capabilities while improving safety, mission success, and affordability."\cite{npr7123.1D}. 
+It is a multidisciplinary, lifecycle approach that integrates hardware, software, and human elements at all levels of hierarchy of a system. 
+The framework divides the project lifecycle into Formulation and Implementation phases, each containing well-defined reviews with specified entrance and exit criteria. 
+Each gate verifies that a project is in compliance with NPR 7123.1D and in turn validates its intent to ensure the end product meets the customer's need\cite{npr7123.1D}.
 
 The NASA SE Framework is characterized by Common Technical Processes, Tools and Methods, and Workforce. Figure \ref{fig:nasa_se_framework} illustrates the view that the systems engineering capability increases along the increase of those 3 axes. \\
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.7\linewidth]{figures/NPR7123.1DC1F4.jpg}
   \caption{NASA Systems Engineering Framework
@@ -61,8 +64,8 @@ The common technical processes mentioned here are defined at the Systems Enginee
 OpenSE was developed within CERN’s Engineering Department as a systems-engineering approach explicitly tailored for scientific facilities \cite{cern2016opense,bonnal2018opense}. 
 It was motivated by the recognition that research infrastructures differ fundamentally from aerospace or defense projects: they are collaborative, distributed, constrained by limited documentation cultures and evolving experimental designs, and must balance that with a focus on safety and reliability in the face of facilities with ionizing radiation. 
 OpenSE aims to preserve the benefits of structured lifecycle management while reducing unnecessary process overhead.\\
-The framework defines six phases (Initialize, Study, Design, Build, Commission, and Finalize) that parallel the ISO/IEC/IEEE 15288 lifecycle but with greater allowance for iteration and concurrency. \\
-\begin{figure}[h]
+The framework defines six phases (Initialize, Study, Design, Build, Commission, and Finalize) that parallel the ISO/IEC/IEEE 15288 lifecycle \cite{iso15288-2023} but with greater allowance for iteration and concurrency. \\
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\linewidth]{figures/openSElifecycle.png}
   \caption{OpenSE Lifecycle
@@ -70,8 +73,8 @@ The framework defines six phases (Initialize, Study, Design, Build, Commission, 
   \label{fig:openSE_lifecycle}
 \end{figure}
 
-The framework notes in several places the inspiration from the NASA SE Handbook but that is more specialized and emphasizes tailorability from simple to more advanced approaches to the application of this framework. \cite{cern2016opense}
-OpenSE emphasizes four guiding principles: openness, leanness, participation, modularity, and scalability.\cite{cern2016opense}
+The framework notes in several places the inspiration from the NASA SE Handbook but that it is more specialized to research systems exposed to ionizing radiation and emphasizes tailorability from simple to more advanced approaches to the application of this framework\cite{cern2016opense}.
+OpenSE emphasizes four guiding principles: openness, leanness, participation, modularity, and scalability\cite{cern2016opense}
 These principles shift the emphasis of governance that NASA takes through NPR 7123.1D \cite{npr7123.1D} and toward a minimal oversight expect safety kind of approach. The activities OpenSE describes are:
 \begin{itemize}[noitemsep, topsep=0pt]
     \item Needs and Requirements 
@@ -92,6 +95,9 @@ These will be referenced as Solution Finding, Integration, System Safety Verific
 \label{sub:comparison}
 Amongst the 3 approaches, NASA SE represents the most formalized and prescriptive model, emphasizing completeness, documentation, and mission assurance. 
 OpenSE, while rooted in the same lifecycle principles, explicitly adapts these practices for research environments, reducing overhead while preserving modularity and openness. 
+What is not addressed in the literature or identified studies of OpenSE is the addressing the claim that OpenSE is better suited because of its tailorability.
+NPR 7123.3 has specific guidance on tailoring the requirements based on mission cost and complexity categorized by class (Class A–D) \cite{npr7123.1D}.
+Further work should be done to investigate this claim.
 Minimal frameworks, by contrast, prioritize flexibility and speed at the cost of being formally verifiable and reproducible. 
 The comparative characteristics of these frameworks, as synthesized from the literature, are summarized in Table \ref{tab:framework_comparison}.
 \begin{table}[h]
@@ -104,12 +110,10 @@ The comparative characteristics of these frameworks, as synthesized from the lit
   row{1} = {font=\bfseries, halign=c},
   column{1} = {font=\bfseries},}
 Characteristic & NASA SE & OpenSE & Minimal \\
-
 Lifecycle Structure &
 Sequential and gated &
 Iterative and facility-driven &
 Informal or project-defined \\
-
 Problem Definition &
 Stable once defined. 
 Significant resources dedicated to requirements development. &
@@ -117,7 +121,6 @@ Functional requirements evolve while safety requirements are stable.
 Moderate resources dedicated to requirements development. &
 Minimal time spent on requirements development. 
 Reactive to safety and facility requirements. \\
-
 Interface Management \& Integration &
 Formalized.
 Governed by ICDs. &
@@ -125,13 +128,11 @@ Structured but more flexible.
 Focuses on collaboration and shared understanding. &
 Implicit and unstructured. 
 Usually through verbal agreements or minimal documentation, as required by facility. \\
-
 Verification \& Validation &
 Formalized, following required V\&V plans. &
 Formalized, following required V\&V plans. &
 Informal or reactive to facility verification needs. 
 Validation relies on in situ testing. \\
-
 Flexibility &
 Low to moderate. 
 Suited for stable requirements. &
@@ -139,12 +140,10 @@ Moderate to high.
 Suited to evolving designs. &
 High to very high. 
 Suited for rapid development and changes. \\
-
 Type/Domain &
 First of a kind and high-stakes/aerospace, defense, missions. &
 First or one of a kind, long-term, and iterative/research infrastructures, accelerators. &
 First of a kind, demonstrators or prototypes/detectors, instruments, and bench-top R\&D labs. \\
-
 Design \& Solution Finding &
 Formalized and driven by agreed-upon requirements. 
 Robust, multidisciplinary engineering studies. &
@@ -154,7 +153,6 @@ Driven by physicists who act as both customer and engineer. &
 Informal. 
 Driven by PI needs. 
 Driven by physicists who act as both customer and engineer. \\
-
 Documentation \& Configuration Management &
 Extensive, standardized artifacts. 
 Robust engineering controls. &
@@ -167,31 +165,31 @@ Some or little engineering controls. \\
 
 The characteristics were selected based on common activities or functions found across each framework.
 
-\section{Advantages and Limitations of Systems Engineering}
+\section{Advantages and Limitations of these Systems Engineering Frameworks}
 \label{sect:pros&cons}
 
 \paragraph{Advantages}
-Many studies have been conducted over the last decade or more verifying the benefits of systems engineering. In an effort to not recreate many meta-analyses that already exist, this review will pull from well-known and established resources, primarily the Systems Engineering Book of Knowledge (SEBoK) \cite{sebok_economic_value}. In the review of the economic benefits of systems engineering in SEBoK, a study highlighting the criticality of systems engineering for NASA missions is discuessed. Figure \ref{fig:se_investments} illustrates the relationship between the percentage of project resources devoted to systems engineering and the percentage of project cost overrun.\cite{sebok_economic_value} \\
-
-\begin{figure}[h]
+Many studies have been conducted over the last decade or more verifying the benefits of systems engineering. In an effort to not recreate many meta-analyses that already exist, this review will pull from well-known and established resources, primarily the Systems Engineering Book of Knowledge (SEBoK) \cite{sebok_economic_value}. 
+In the review of the economic benefits of systems engineering in SEBoK, a study highlighting the criticality of systems engineering for NASA missions is discussed. 
+Figure \ref{fig:se_investments} illustrates the relationship between the percentage of project resources devoted to systems engineering and the percentage of project cost overrun\cite{sebok_economic_value}. \\
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.7\linewidth]{figures/700px-NASA_Image_Part_1.png}
-  \caption{Relation of SE Investments to NASA Program Cost Overruns (Stutzke 2005)
+  \caption{Relation of SE Investments to NASA Program Cost Overruns from SEBoK
   \cite{sebok_economic_value}.}
   \label{fig:se_investments}
 \end{figure}
-
 Data from NASA programs show that projects investing less than 5\% in systems engineering experienced overruns exceeding 150\%, while those allocating greater than 15\% maintained very low overruns. 
 This trend demonstrates that robust systems engineering practices reduce technical and programmatic with some enhanced cost and schedule predictability. 
 According to this study, even a modest increase in systems engineering investment yields significant benefits in project controls success. 
 The gap here is understanding the impacts on this correlation if system performance or mission success were factored in.\\
-It is evident that there needs to have a balance struck on time and resources spent on systems engineering and complexity of a system or project.\cite{sebok_economic_value} 
+It is evident that there needs to have a balance struck on time and resources spent on systems engineering and complexity of a system or project\cite{sebok_economic_value}. 
 The relationship between the percentage of project time devoted to initial architectural design and risk resolution versus the total schedule impact, including rework, is illustrated in Figure \ref{fig:enoughSE}. 
  
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.7\linewidth]{figures/P1_EconValueSE_RiskBalancedfig2_BB.jpg}
-  \caption{Risk-Balanced “How Much SE Is Enough” (Boehm, Valerdi, and Honour 2008)
+  \caption{Risk-Balanced “How Much SE Is Enough” Plot from SEBoK
   \cite{sebok_economic_value}.}
   \label{fig:enoughSE}
 \end{figure}
@@ -201,29 +199,29 @@ Projects that spend too little time in these early phases face substantial rewor
 Effective systems engineering finds the balance, ensuring that sufficient effort is applied early to reduce downstream uncertainty and rework, ultimately improving schedule efficiency and project assurance.
 Most systems engineering frameworks, if structured well, provide precisely that: tailorability in application (even the more rigid frameworks). 
 And that is at the heart of what question being asked here - what is "enough" for medium-scale research infrastructure projects and is OpenSE a viable tailored framework? 
-Bonnal et al.\cite{bonnal2018opense} describes OpenSE as “particularly suited to particle-accelerator studies and development projects,” noting its flexibility for projects with shared governance and partial reuse of existing infrastructure (i.e., facility infrastructure from previous experiments).
+Bonnal et al\cite{bonnal2018opense} describes OpenSE as “particularly suited to particle-accelerator studies and development projects,” noting its flexibility for projects with shared governance and partial reuse of existing infrastructure (i.e., facility infrastructure from previous experiments).
 
 \paragraph{Limitations}
-Multiple analyses have noted that the strengths of rigid systems engineering can impose significant administrative overhead and reduce flexibility when applied to small or exploratory projects \cite{r&dSE}. 
-The rigor of NASA SE can thus exceed the practical capacity of medium-scale research infrastructure projects or research-driven teams, particularly those operating with evolving scientific objectives or limited dedicated engineering staff.
-Kaeske et al. \cite{Kaeske_Wagner_Albers_Russenschuck_2024} discuss the usefulness of the framework but highlight the needs for more prescriptive methodology and tool support to bridge the gap between intentional generalizations and practical guidance.
-Honoré-Livermore et al. \cite{academicsPerceptionSE} and Hodges and Granados \cite{r&dSEbridge} highlight that early-stage R\&D projects often view traditional systems engineering as incompatible with their culture of rapid iteration and discovery. 
+Multiple analyses have noted that, though there are strengths of prescriptive and specific frameworks, rigid systems engineering can impose, real or perceived, unnecessary administrative overhead and reduce flexibility when applied to small or exploratory projects \cite{r&dSE} \cite{r&dSEbridge} \cite{academicsPerceptionSE}. 
+The rigor of NASA SE could exceed the practical capacity of medium-scale research infrastructure projects or research-driven teams, particularly those operating with evolving scientific objectives or limited dedicated engineering staff.
+Kaeske et al\cite{Kaeske_Wagner_Albers_Russenschuck_2024} discuss the usefulness of the framework but highlight the needs for more prescriptive methodology and tool support to bridge the gap between intentional generalizations and practical guidance.
+Honoré-Livermore et al\cite{academicsPerceptionSE} and Hodges and Granados \cite{r&dSEbridge} highlight that early-stage R\&D projects often view traditional systems engineering as incompatible with their culture of rapid iteration and discovery. 
 Instead, these early-stage R\&D projects apply systems engineering principles selectively, focusing on design and documentation only when required for compliance with a funding organization or the facility hosting the system.
-
 \paragraph{Identified Gaps and Solutions for R\&D}
-There is this term called the “Valley of Death” that typically arises at Technology Readiness Levels (TRLs) 5 and 6, where responsibility transitions from early-stage research to full-scale development. 
-This phase often becomes a point of friction between exploratory R\&D engineers and those focused on later development at TRLs 7 and higher.\cite{r&dSE} 
+There is this well-known term called the “Valley of Death” that typically arises at Technology Readiness Levels (TRLs) 5 and 6.
+This valley is where responsibility transitions from early-stage research to full-scale development. 
+This phase often becomes a point of friction between exploratory R\&D engineers and those focused on later development at TRLs 7 and higher\cite{r&dSE}. 
 Many efforts fail to progress beyond this stage due to insufficient funding, performance gaps, or inadequate mechanisms to bridge research outputs with operational capability. 
-Additional causes include unclear research objectives (requirements), poorly managed risks, weak coordination between transitioning organizations (knowledge and interface management), and ineffective application of processes (training and methods). 
+Additional causes include unclear research objectives (requirements), poorly managed risks, weak coordination between transitioning organizations (knowledge and interface management), and ineffective application of processes (training and methods)\cite{r&dSE}. 
 Misaligned performance measures, leadership conflicts, and entrenched cultural factors can further exacerbate the issue. 
-Ultimately, the findings keep coming back to selecting and implementing the right framework for the project at hand.
-
+Ultimately, the findings keep coming back to the importance and impact of selecting and implementing the right framework for the \textit{project at hand}.
 \section{Research Infrastructure Project Metrics}
 \label{sect:metrics}
-So how do we choose the right framework for the project at hand?
+So how do we choose the right framework for the \textit{project at hand}?
 The first step might be to characterize what goals the project is trying to achieve and how it intends to measure its success at getting to those goals.
-Limited studies or interviews exist to quantify how research experiments, beyond individual experiments of physics runs, quantify success, highlighted by Stotz and Drews.\cite{experimentMetrics} The metrics they did discover after their study were grouped into six categories: 
-\begin{enumerate}
+Limited studies or interviews exist to quantify how research experiments, beyond individual experiments of physics runs, quantify success, highlighted by Stotz and Drews\cite{experimentMetrics}. 
+The metrics they did discover after their study were grouped into six categories: 
+\begin{enumerate}[noitemsep, topsep=0pt]
     \item \textbf{Volume:} scale and reach of experimentation
     \item \textbf{Outcome-Based:} results and impact of experimentation
     \item \textbf{Quality:} rigor and reliability of experimentation
@@ -232,8 +230,8 @@ Limited studies or interviews exist to quantify how research experiments, beyond
     \item \textbf{Strategic Alignment:} impact on broader organizational goals
 \end{enumerate}
 
-These categories can easily be mapped back to typical project metrics that give a foundation for the simulation-based study. Volume translates to uptime, outcome-based translates to earned value, quality translates system performance and data integrity, engagement and adoption translates to customer satisfaction, process efficiency translates to schedule, and strategic alignment translates to stakeholder satisfaction.\\
-More specific mapping to the simulation will be discussed in the \ref{chapter:methods}.
+These categories can easily be mapped back to typical project metrics that give a foundation for the simulation-based study. 
+Volume translates to uptime, outcome-based translates to earned value or cost, quality translates system performance and data integrity, engagement and adoption translates to customer satisfaction, process efficiency translates to schedule, and strategic alignment translates to stakeholder satisfaction.
 \section{Gaps in Simulation-Based Research}
 \label{sect:simulations}
 To date, this project's efforts have not found any studies or research using simulation-based methods to compare systems engineering frameworks impact to performance in the context of scientific research infrastructure projects. 
