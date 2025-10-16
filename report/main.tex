@@ -1,0 +1,92 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Master of Science in Systems Engineering Plan B Project built 
+% from the Colorado State University LaTeX Thesis Template
+% and Documentation by Elliott Forney - documentation of
+% tempalte provided in thesis.cls, maintained in GitHub 
+% and pulled on Oct 1, 2025 for use for this project by Hannah McLaurin.
+
+\documentclass[master]{thesis}
+\usepackage[cmex10]{amsmath}
+\usepackage{amsthm,amssymb}
+\usepackage[pdftex]{graphicx}
+\graphicspath{{./figures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage[caption=false]{subfig}
+\usepackage{booktabs}
+\usepackage{url}
+\urlstyle{same}
+\usepackage{cite}
+\newcommand{\eref}[1]{\eqref{#1}}
+\newcommand{\fref}[1]{Figure~\ref{#1}}
+\newcommand{\cref}[1]{section~\ref{#1}}
+\newcommand{\sref}[1]{Section~\ref{#1}}
+\newcommand{\aref}[1]{Appendix~\ref{#1}}
+\newcommand{\tref}[1]{Table~\ref{#1}}
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{changepage}
+\usepackage{tabularx}
+\usepackage{tabularray}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{float}
+
+% Title Page
+
+\title{An Introductory Simulation-Based Comparison of Systems Engineering Frameworks for Medium-Scale Scientific Infrastructure Projects}
+
+\author{Hannah W. McLaurin}
+\email{hannah.mclaurin@colostate.edu}
+\department{Department of Systems Engineering}
+\semester{Fall 2025}
+\advisor{Dr. Thomas Bradly}
+\committee{Dr. Steven Simske}
+\committee{Dr. Matthew Kipper}
+\abstract{Medium-scale scientific infrastructure projects exist between small laboratory experiments and large mission driven facilities. 
+These projects face growing technical complexity and safety requirements while operating with limited resources and evolving goals. 
+Traditional systems engineering frameworks such as the NASA Systems Engineering Handbook provide rigor but can burden research teams with documentation and governance unsuited to their agility. 
+Minimal approaches allow flexibility but risk poor integration readiness and reduced data quality. 
+CERN developed the OpenSE framework to offer a lean and safety focused alternative designed for research environments, yet its effectiveness outside accelerator contexts is not well studied. 
+
+This project compares three framework conditions: minimal approach, OpenSE, and traditional systems engineering. 
+An initial, non-exhaustive literature review identifies success metrics for research infrastructure projects and establishes structural differences among the frameworks. 
+A crude virtual project model, based on representative assumptions from experience working with the COHERENT experiment at Oak Ridge National Laboratory, is used to simulate project outcomes under each framework. 
+Results provide an initial view of how framework choice influences project success and readiness in research infrastructure contexts.}
+
+\acknowledgements{I would like to thank Thomas Bradley and Ingrid Bridge for their support and ensuring that I both completed this project and created a quality product. 
+I would like to thank Jason Newby, Brennan Hackett, and the COHERENT Collaboration for allowing me to not only be part of their team but use the incredible technology and physics instrumentation they designed and the hard work they put in to realizing these systems as a foundation for how to better understand the applications of systems engineering for fundamental physics research systems. 
+I would also like to thank the engineers and physicists at CERN and NASA who created the frameworks being studied without which these questions would not be able to be posed.}
+
+
+\usepackage[pdfpagelabels,pdfusetitle,colorlinks=false,pdfborder={0 0 0}]{hyperref}
+
+
+\begin{document} 
+\frontmatter
+\maketitle
+\makeabstract
+\makeacknowledgements
+\newpage
+\tableofcontents
+\listoftables
+\listoffigures
+\mainmatter
+\include{sections/1_introduction}
+\clearpage
+\include{sections/2_litReview}
+\clearpage
+\include{sections/3_methods}
+\clearpage
+\include{sections/4_results}
+\clearpage
+\include{sections/5_discussion}
+\clearpage
+\backmatter
+\clearpage
+\bibliographystyle{unsrt}
+\bibliography{references}
+\clearpage
+\appendix
+\clearpage
+\end{document}

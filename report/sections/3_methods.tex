@@ -1,0 +1,56 @@
+\chapter{Methods}
+\label{chapter:methods}
+\paragraph{Preamble and Caveat} First and foremost, it is important to note that all parameter distributions and coefficients are illustrative and chosen to reflect qualitative differences among frameworks rather than measured quantities.
+Values are based on engineering judgment and prior experience in research infrastructure projects, specifically COHERENT.
+The model is intended to demonstrate structure and possible sensitivity, not to forecast actual science yield.
+A recommended next step is to create dynamics loops that better represent behaviors, replace these assumed distributions with data from project lessons learned or
+published later applicable systems engineering effectiveness studies.\\
+
+A Monte Carlo simulation approach was implemented to estimate the expected distribution of science data loss across three systems engineering (SE) frameworks: NASA SE, OpenSE, and a Minimal. 
+The simulation was performed in Python using NumPy, Matplotlib, and Pandas libraries for numerical computation, visualization, and data aggregation, respectively.
+
+A total of $N = 100{,}000$ iterations were executed per framework to ensure statistical stability in the resulting distributions. 
+Each iteration generated a artificial realization of eight independent parameters representing major project performance drivers, summarized in Table \ref{tab:variables}. 
+\begin{table}[htbp]
+    \centering
+    \caption{Simulation Variables and Descriptions}
+    \label{tab:variables}
+    \begin{tabular}{llp{8cm}}
+        \toprule
+        \textbf{Variable} & \textbf{Symbol} & \textbf{Description and Rationale} \\
+        \midrule
+        Duration Overrun & $D$ & Fractional increase beyond baseline schedule. Reflects planning discipline and lifecycle control. \\
+        Rework Fraction & $R$ & Portion of effort required for correcting or revisiting previous work. Indicates quality of initial execution and requirement clarity. \\
+        Integration Readiness & $IRL$ & Scaled to [0, 1], where 1 represents fully integrated, interface-mature components. IRLs are one a 1-9 scale that mirrors TRLs.\cite{gao2020tra} Captures coordination and pre-integration maturity. \\
+        Maintenance Downtime & $T_m$ & Expected fractional time lost due to system unavailability. Reflects robustness, results of performing FMEAs, and having support engineering. \\
+        Design Compromise & $P$ & Degree of functional or performance trade-offs made during development. Includes scope reduction and underperformance. \\
+        Budget Reallocation & $B_1$ & Portion of budget diverted due to unforeseen work (e.g., rework, emergent tasks). \\
+        Inefficiencies and overburden documentation & $I$ & Fractional loss due to admin burden. Assumption based on procedural inefficiency estimates, slow decision-making.\\
+        Measurement Degradation & $Q$ & Captures the loss of data quality due to instrumentation or procedural faults. Affects science yield directly. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+These include duration overrun ($D$), rework fraction ($R$), integration readiness level ($IRL$), maintenance downtime ($T_m$), design compromise severity ($P$), budget reallocation due to rework ($B_1$), inefficiencies and overburden ($I$), and measurement quality degradation ($Q$). 
+Each parameter was expressed as a normalized fraction of impact (0–1) or readiness (for $IRL$), allowing combination into a unified performance index.
+These parameters are an initial derivation from the literature review.\\
+For each framework, the parameters were sampled from either bounded normal or triangular distributions. 
+These distribution shapes were chosen based on the level of uncertainty and skew expected from the framework’s project management characteristics and how well studied the implementation of these approaches are. 
+For example, NASA SE emphasizes documentation rigor, leading to slower progress but lower variance in integration readiness, whereas Minimal exhibits greater uncertainty due to weak control and lack of formal processes. The varying standard deviations were informed by how characterized or studied these impacts are, in general, as well.\\
+Each framework’s parameterization is summarized below:
+\begin{itemize}
+    \item \textbf{NASA SE:} conservative lifecycle durations, high effort, and strong reliability and safety focus. 
+    \item \textbf{OpenSE:} iterative and lean processes with moderate formality and focus on safety.
+    \item \textbf{Minimal:} loosely coordinated workflows with higher performance, schedule, and cost volatility, but greater flexibility.
+\end{itemize}
+
+Initial simplicity was the goal and thus the overall science data loss fraction ($L$) was computed as the normalized mean of the eight contributing parameters:
+\begin{equation}
+    L = \frac{D + R + (1 - IRL) + T_m + P + B_1 + I + Q}{8},
+\end{equation}
+where $L$ represents the effective fraction of total potential science yield lost due to engineering inefficiencies or integration challenges. All values were constrained within the $[0, 1]$ range.\\
+A summary of simulation statistics was computed for each framework, including mean ($\mu_L$), standard deviation ($\sigma_L$), 5th and 95th percentiles, and the probability of exceeding a 10\% data loss threshold, $P(L > 0.1)$, which serves as a risk indicator for unacceptable performance degradation.\\
+
+\vspace{1em}
+\noindent The full Python script used for this analysis is included in the GitHub repository \hyperref[https://github.com/hannahmclaurin/syse695-masters-planB]{\textbf{syse695-masters-planB}} where this report is also maintained.

@@ -1,0 +1,11 @@
+\chapter{Discussion}
+\label{chap:discussion}
+%THIS IS PRELIMINARY AND MAY CHANGE%
+The results of the Monte Carlo simulation provide insight into the expected science data loss across three systems engineering frameworks: NASA SE, OpenSE, and a Minimal framework.\\
+Overall, the OpenSE framework demonstrates the lowest mean simulated science data loss ($\mu = 0.152$), followed by NASA SE ($\mu = 0.200$), with the Minimal framework performing worst ($\mu = 0.226$). While NASA SE is traditionally associated with high procedural rigor and reliability, its high burden of procedural overhead may offset its gains in schedules where quicker turn around and flexibility are often required for exploratory research projects.\\
+Despite OpenSE’s looser structure, it benefits from lower rework levels and a balance between flexibility and formality, which likely contributes to its lower science loss. The broader variance (Std.\ $L$ = 0.036) suggests more sensitivity to project conditions but still maintains "acceptable" performance.\\
+In contrast, the Minimal framework shows both higher mean loss and greater variance (Std.\ $L$ = 0.048), confirming expectations about the risk of adopting ad hoc approaches for medium-scale projects where complexity is increasing. 
+The 95th percentile loss for Minimal (0.312) indicates a long tail of worst-case scenarios, reflecting a possible increased risk in scientific output degradation.\\
+The probability of exceeding a 10\% science loss threshold is nearly certain for all frameworks (\$P(L>10\%) > 0.95\$), but OpenSE is the only framework that shows any meaningful chance (~5\%) of staying below this threshold, indicating potential suitability in environments that demand both flexibility and scientific reliability.\\
+These findings partially reinforce the hypothesis that neither extreme formality nor minimal structure is optimal for medium-scale research infrastructure.
+Frameworks like OpenSE, designed for scientific environments, may offer a better trade-off between structure and agility.

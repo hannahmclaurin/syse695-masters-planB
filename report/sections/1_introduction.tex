@@ -1,0 +1,75 @@
+\chapter{Introduction}
+\label{chapter:intro}
+\section{Background and Motivation}
+\label{sect:background}
+Medium-scale physics research and scientific infrastructure projects occupy a unique space between small laboratory or bench-top experiments and large-scale facilities or missions. 
+They are often demonstrators or used for benchmark measurements that are part of larger research programs.
+These programs are often led by multi-institutional collaborations exploring a specific scientific discovery. 
+These collaboration-led projects are typically characterized by mid-scale budgets in the \$10 to 100 million range and often are attempting significant technical challenges that require a larger amount of research and development than large-scale projects \cite{pmScale2024}. \\
+As research programs mature, many collaborations experience a natural progression from these bench-top experimentation projects toward large, integrated system deployments. 
+Early development stages often rely those teams' ability to be nimble and leverage ad hoc coordination, significant subject matter expertise, and reactive problem solving within small teams. 
+However, as technical scope expands to include more instrumentation, increased complexity and scale of detectors, cross-institutional interfaces, and operational environment with increased safety critical functions, this informal model becomes insufficient. 
+The increasing complexity and interdependence of components, including those between the instruments and the facility with which they reside, require higher levels of process discipline, documentation control, and configuration management. 
+For many scientific teams, this transition represents a shift from research culture to systems engineering culture introducing practices that, while new to the community, are essential for ensuring integration readiness and sustained operational reliability. 
+Not only are these collaborations now attempting to integrate complex scientific goals with engineering rigor but they are attempting to do so while operating under constrained resources and distributed management, thus driving the need for systems engineering as a risk mitigation in one form or another. \\
+Across the scientific community, the practical applications of systems engineering vary widely. 
+Standardized frameworks primarily originate from mission driven, high stakes, and highly regulated environments that emphasize rigorous and documentation heavy systems engineering procedures. 
+While these frameworks provide a robust foundation for disciplined system realization, their direct application to medium-scale research infrastructure infrastructure projects is not well-defined or even well-accepted \cite{r&dSE}. 
+Scientific programs typically operate within flexible, evolving, and resource limited contexts that do not align with the formal rigor and requirements of aerospace, nuclear, accelerator, defense, etc. systems engineering frameworks.
+Moreover, even the tailoring of these systems engineering frameworks for medium-scale research infrastructure projects is perceived by the academic and research community as non-viable \cite{r&dSE}. \\
+Assuming an adoption of systems engineering for a medium-scale research infrastructure project, framework selection thus becomes a critical determinant of project performance. 
+Overly prescriptive frameworks can inhibit agility, decrease innovation, slow progress, and potentially increase wasted resources due to over-burdensome documentation; 
+while insufficiently structured ones can obscure accountability, weaken integration readiness, and increase the likelihood of design rework and loss of meaningful scientific data. \\
+As a response to these contextual constraints, CERN developed the OpenSE framework \cite{cern2016opense} to provide an alternative designed specifically for research projects that integrate into facilities with safety critical operations, (e.g., accelerators, nuclear reactors, etc.). 
+It emphasizes safety, iterative development, and lean documentation practices while maintaining lifecycle alignment with recognized international standards. 
+OpenSE aims to preserve the systems thinking discipline of traditional systems engineering frameworks while improving accessibility and adaptability for research driven environments. 
+For context, within this project, referencing "traditional" frameworks means rigid, highly prescriptive systems engineering frameworks that include formalized governance to ensure compliance.
+The utility of the OpenSE framework seems promising for other research experiments that require complex instrumentation and systems, but due to its novelty, has not been widely applied. 
+As a result, the framework's efficacy is not well understood.
+\section{Problem Statement}
+\label{sect:problem}
+CERN’s OpenSE framework \cite{cern2016opense} was developed to address the challenges and gaps presented by traditional systems engineering frameworks by offering a tailored alternative that aligns with the constraints of both safety and agility for research infrastructure projects. 
+It explicitly accommodates distributed teams, resource constraints, evolving designs, and the limited engineering documentation culture typical of research and collaboration teams. 
+Despite its conceptual advantages, the efficacy of OpenSE, particularly when compared to minimal (i.e., ad hoc or extremely lightweight and unstructured) or traditional frameworks in scientific infrastructure projects outside of accelerator environments, remains largely unstudied. 
+As of this initial dive into the literature, there are a few empirical studies on accelerator facility hosted research infrastructure exist. 
+However, there is a lack of comparative, simulation-based studies assessing the impact of different systems engineering frameworks, such as OpenSE or NASA SE, on project outcomes in research infrastructure contexts.
+\section{Purpose and Research Questions}
+\label{sect:purpose&questions}
+\subsection{Purpose}
+\label{sub:purpose}
+The purpose of this project is to understand how framework selection affects project performance on research infrastructure projects hosted within safety-critical facilities, narrowing focus to investigate projects where technical complexity and interdisciplinary coordination are increasing but have not yet tipped the scale into large infrastructure or mission-based project space, those called medium-scale research infrastructure projects.
+The project aims to compare the OpenSE framework with both traditional and minimal systems engineering approaches to determine their relative impact on project performance and outcomes.
+By constructing a virtual project model based on representative experimental physics project data, the project will simulate and compare project outcomes under three distinct framework conditions:
+\begin{enumerate}
+    \item a minimal workflow reflecting ad hoc practices,
+    \item the OpenSE framework, and
+    \item a traditional systems engineering framework, as defined by the NASA Systems Engineering Handbook.
+\end{enumerate}
+To evaluate the practical value of OpenSE in this type of environment, a representative project that captures these challenges is necessary for empirical model and simulation inputs and evaluation against actual project performance for follow on work to this project. 
+The COHERENT collaboration at the Spallation Neutron Source (SNS) at Oak Ridge National Laboratory (ORNL) provides an ideal representative case of this class of medium-scale research infrastructure projects that integrate into a facilities that produce ionizing radiation. 
+COHERENT integrates multiple detector technologies and multi-institutional teams to study coherent elastic neutrino–nucleus scattering (CEvNS)\cite{ornlCoherent}, requiring coordination with both the SNS facility and across other COHERENT detectors. 
+Projects of this nature demand a framework that will balance flexibility for scientific discovery with the engineering discipline necessary to deliver reliable, safe, and verifiable systems.
+\subsection{Project Scope}
+\label{sub:scope}
+This master’s project is limited to an initial literature study, a crude model and simulation of a virtual project, and an initial analysis effort. 
+An end goal of this project is to effectively set up the foundation for follow-on work to include subsequent research with a deeper literature review, higher fidelity simulation and evaluation of model predictions against real project performance.\\
+The specific objectives of this master’s project are to:
+\begin{itemize}
+    \item Conduct a literature review of current OpenSE applications in scientific infrastructure projects.
+    \item Analyze and characterize structural differences between minimal, OpenSE, and NASA SE frameworks.
+    \item Develop and execute a virtual project simulation using representative data from detectors belonging to the COHERENT Collaboration.
+    \item Perform a comparative analysis of framework impacts on simulated project outcomes.
+\end{itemize}
+\subsection{Project Questions}
+\label{sub:primaryQuestion}
+\paragraph{Primary Question}
+\begin{center}
+\textit{How do the OpenSE, NASA Systems Engineering Handbook, and minimal workflow frameworks influence simulated project success metrics in medium-scale research infrastructure and experimental physics projects?}
+\end{center}
+\paragraph{Supporting questions:}
+\begin{enumerate}
+    \item What qualitative and/or quantitative evidence exists to demonstrate impact of systems engineering as a practice on medium-scale research infrastructure or equivalent projects?
+    \item What are metrics of project success for medium-scale research infrastructure projects?
+    \item What elements of a project are well-understood to impact success metrics?
+    \item What are the characteristics of each framework that map to project elements that impact success?
+\end{enumerate}
